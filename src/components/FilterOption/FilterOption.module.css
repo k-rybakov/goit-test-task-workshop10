@@ -1,0 +1,43 @@
+.filterOption {
+  padding: 16px 18px;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  width: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterOption span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #101828;
+}
+
+.filterOption:hover {
+  border-color: #ccc;
+}
+
+.filterOption.selected {
+  border-color: #e44848;
+}
+
+.icon {
+  display: block;
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+}

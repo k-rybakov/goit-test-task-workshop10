@@ -1,0 +1,76 @@
+.camper {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.image {
+  width: 292px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.details {
+  margin-left: 16px;
+}
+
+.info span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.moreButton {
+  border-radius: 200px;
+  padding: 16px 30px;
+  width: 166px;
+  background: #e44848;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.moreButton:hover {
+  background: #d84343;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title__name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #101828;
+  margin: 0;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.rating > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.info {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,26 @@
+.link {
+  margin-right: 20px;
+}
+
+.active,
+a.active:visited {
+  font-weight: 500;
+  color: var(--button);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 40%;
+  background-color: var(--inputs);
+  border-bottom: 1px solid #f2f4f7;
+  padding: 24px 64px;
+  max-width: 100%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}

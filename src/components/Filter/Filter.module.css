@@ -1,0 +1,90 @@
+.filter {
+  padding: 16px;
+}
+
+.filterSection {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.filterSection input,
+.filterSection select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttons button {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.divider {
+  margin-bottom: 7px;
+}
+
+.filters__header {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  margin-bottom: 16px;
+}
+
+.filterLocation {
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.filterLocation svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.filterLocation input {
+  border-radius: 12px;
+  padding: 9px 180px 9px 40px;
+  height: 20px;
+  background: #f7f7f7;
+  border: transparent;
+  vertical-align: middle;
+}
+.searchButton {
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  background: #e44848;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.searchButton:hover {
+  background: #d84343;
+}

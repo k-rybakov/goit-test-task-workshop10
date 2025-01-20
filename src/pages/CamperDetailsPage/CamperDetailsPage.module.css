@@ -1,0 +1,128 @@
+.camperDetailsPage {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0;
+}
+
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.rating {
+  color: #f39c12;
+}
+
+.location {
+  color: #7f8c8d;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.description {
+  margin: 20px 0;
+  color: #2c3e50;
+}
+
+.featuresReviews {
+  display: flex;
+  gap: 20px;
+}
+
+.tabMenu {
+  display: flex;
+  gap: 10px;
+}
+
+.activeTab {
+  border-bottom: 2px solid red;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.equipment {
+  display: flex;
+  gap: 10px;
+}
+
+.filterButton {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.filterButton:hover,
+.filterButton:focus {
+  border-color: red;
+}
+
+.details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.bookingForm {
+  margin-top: 20px;
+}
+
+.bookingForm h3 {
+  margin-bottom: 10px;
+}
+
+.bookingForm p {
+  margin-bottom: 20px;
+}
+
+.bookingForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bookingForm input,
+.bookingForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

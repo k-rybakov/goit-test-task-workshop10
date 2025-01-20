@@ -1,0 +1,65 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  width: 1440px;
+}
+
+.homepage {
+  position: relative;
+  height: 696px;
+  width: 100%;
+  background-image: url("/src/assets/main-screen.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 52px;
+}
+
+.homepage__content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 40px;
+  margin-left: 40px;
+}
+
+.homepage__title {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 0.66667;
+  color: #f7f7f7;
+  margin-bottom: 16px;
+}
+
+.homepage__subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #f7f7f7;
+  margin-top: 0;
+}
+
+.homepage__button {
+  /* padding: 15px 30px; */
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: var(--button);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 200px;
+  padding: 16px 60px;
+  /* width: 173px;
+  height: 56px; */
+}
+
+.homepage__button:hover {
+  background-color: #d32f2f;
+}
