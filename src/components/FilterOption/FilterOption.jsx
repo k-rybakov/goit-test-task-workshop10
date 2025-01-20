@@ -17,7 +17,7 @@ const FilterOption = ({ icon, name, type, value }) => {
       onClick={handleClick}
     >
       <svg className={styles.icon} aria-hidden="true">
-        <use href={`/src/assets/sprite.svg#${icon}`} />
+        <use href={`/sprite.svg#${icon}`} />
       </svg>
       <span className={styles.name}>{name}</span>
     </button>

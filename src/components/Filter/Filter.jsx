@@ -23,7 +23,7 @@ const Filter = () => {
       <div className={styles.filters__header}>Location</div>
       <div className={styles.filterLocation}>
         <svg className={styles.icon} aria-hidden="true">
-          <use href={`/src/assets/sprite.svg#location-default`} />
+          <use href={`/sprite.svg#location-default`} />
         </svg>
         <input
           type="text"

@@ -23,13 +23,13 @@ const Camper = ({ camper }) => {
         <div className={styles.rating}>
           <div>
             <svg className={styles.icon} aria-hidden="true">
-              <use href={"/src/assets/sprite.svg#star-yellow"} />
+              <use href={"/sprite.svg#star-yellow"} />
             </svg>
             {camper.rating}({numberOfReviews()} reviews)
           </div>
           <div>
             <svg className={styles.icon} aria-hidden="true">
-              <use href={`/src/assets/sprite.svg#location-default`} />
+              <use href={`/sprite.svg#location-default`} />
             </svg>
             {camper.location}
           </div>
