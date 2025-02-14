@@ -30,12 +30,18 @@ export default function CamperDetailsPage() {
           <div className={styles.header}>
             <h1 className={styles.title}>{camper.name}</h1>
             <div className={styles.subheader}>
-              <span className={styles.rating}>
-                <strong>
-                  ⭐ {camper.rating}({numberOfReviews()} reviews)
-                </strong>
-              </span>
-              <span className={styles.location}>{camper.location}</span>
+              <div className={styles.rating}>
+                <svg className={styles.icon} aria-hidden="true">
+                  <use href={"/sprite.svg#star-yellow"} />
+                </svg>
+                {camper.rating}({numberOfReviews()} reviews)
+              </div>
+              <div className={styles.location}>
+                <svg className={styles.iconLocation} aria-hidden="true">
+                  <use href={`/sprite.svg#location-default`} />
+                </svg>
+                {camper.location}
+              </div>
             </div>
             <h2 className={styles.price}>{formattedPrice(camper.price)}</h2>
           </div>

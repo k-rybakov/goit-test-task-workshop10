@@ -14,16 +14,23 @@
 
 .subheader {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 16px;
   margin: 10px 0;
 }
 
 .rating {
-  color: #f39c12;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .location {
-  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .price {
@@ -125,4 +132,15 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  align-self: center;
+}
+
+.iconLocation {
+  width: 20px;
+  height: 20px;
 }
