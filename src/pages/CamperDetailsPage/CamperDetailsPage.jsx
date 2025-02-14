@@ -13,6 +13,8 @@ import {
 import TagOption from "../../components/TagOption/TagOption";
 import Rating from "../../components/Rating/Rating";
 import { toast, Toaster } from "react-hot-toast";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -24,6 +26,8 @@ export default function CamperDetailsPage() {
   const [activeTab, setActiveTab] = useState("features");
 
   const { camper, isLoading, error } = useSelector((state) => state.campers);
+
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -166,11 +170,11 @@ export default function CamperDetailsPage() {
                   required
                   placeholder="Email*"
                 />
-                <input
-                  type="date"
-                  name="bookingDate"
-                  required
-                  placeholder="Booking date*"
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  placeholderText="Date*"
+                  dateFormat="yyyy-MM-dd"
                 />
                 <textarea
                   name="comment"
