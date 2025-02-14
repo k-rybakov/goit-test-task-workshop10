@@ -5,6 +5,7 @@ import {
   numberOfReviews,
 } from "../../heplers/formatters";
 import { Link } from "react-router-dom";
+import TagOption from "../TagOption/TagOption";
 
 const Camper = ({ camper }) => {
   return (
@@ -40,12 +41,12 @@ const Camper = ({ camper }) => {
         </p>
 
         <div className={styles.info}>
-          <span>🚗 {camper.transmission}</span>
-          <span>{camper.engine}</span>
-          {camper.kitchen && <span>🍳 Kitchen</span>}
-          {camper.AC && <span>❄️ AC</span>}
-          {camper.bathroom && <span>🚽 Bathroom</span>}
-          {camper.TV && <span>📺 TV</span>}
+          <TagOption icon="automatic" text={camper.transmission} />
+          <TagOption icon="fuel" text={camper.engine} iconClass="icon-fuel" />
+          {camper.kitchen && <TagOption icon="kitchen" text="Kitchen" />}
+          {camper.AC && <TagOption icon="ac" text="AC" />}
+          {camper.bathroom && <TagOption icon="bathroom" text="Bathroom" />}
+          {camper.TV && <TagOption icon="tv" text="TV" />}
         </div>
         <Link to={`/campers/${camper.id}`}>
           <button className={styles.moreButton}>Show more</button>
