@@ -11,6 +11,7 @@ import {
   capitalize,
 } from "../../heplers/formatters";
 import TagOption from "../../components/TagOption/TagOption";
+import Rating from "../../components/Rating/Rating";
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -125,14 +126,17 @@ export default function CamperDetailsPage() {
               className={`${styles.tabContent} ${styles.reviews}`}
               style={{ display: activeTab === "reviews" ? "flex" : "none" }}
             >
-              <h3>Reviews</h3>
               {!camper.reviews.length && <p>No reviews yet</p>}
               {camper.reviews.map((review, index) => (
                 <div key={index} className={styles.review}>
                   <div className={styles.reviewHeader}>
-                    <div>{review.reviewer_name.charAt(0)}</div>
-                    <strong>{review.reviewer_name}</strong>
-                    <span>{review.reviewer_rating}</span>
+                    <div className={styles.reviewerLogo}>
+                      {review.reviewer_name.charAt(0)}
+                    </div>
+                    <div className={styles.reviewHeaderDetails}>
+                      <span>{review.reviewer_name}</span>
+                      <Rating rating={review.reviewer_rating} />
+                    </div>
                   </div>
                   <p>{review.comment}</p>
                 </div>
