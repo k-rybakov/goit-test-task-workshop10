@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import styles from "./CamperDetailsPage.module.css";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCamperById } from "../../redux/camperSlice";
 import Loader from "../../components/Loader/Loader";
@@ -10,6 +10,7 @@ import {
   formattedPrice,
   capitalize,
 } from "../../heplers/formatters";
+import TagOption from "../../components/TagOption/TagOption";
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ export default function CamperDetailsPage() {
   useEffect(() => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
+
+  const [activeTab, setActiveTab] = useState("features");
 
   const { camper, isLoading, error } = useSelector((state) => state.campers);
   console.log(camper);
@@ -54,36 +57,74 @@ export default function CamperDetailsPage() {
 
           <p className={styles.description}>{camper.description}</p>
 
-          <div className={styles.featuresReviews}>
-            <nav className={styles.tabMenu}>
-              <button className={styles.activeTab}>Features</button>
-              <button>Reviews</button>
-            </nav>
+          <div className={styles.tabMenu}>
+            <div className={styles.tabMenuButtons}>
+              <button
+                className={activeTab === "features" ? styles.activeTab : ""}
+                onClick={() => setActiveTab("features")}
+              >
+                Features
+              </button>
+              <button
+                className={activeTab === "reviews" ? styles.activeTab : ""}
+                onClick={() => setActiveTab("reviews")}
+              >
+                Reviews
+              </button>
+            </div>
+            <hr />
+          </div>
 
-            <div className={styles.features}>
+          <div className={styles.detailedInwoWrapper}>
+            <div
+              className={`${styles.tabContent} ${styles.features}`}
+              style={{ display: activeTab === "features" ? "flex" : "none" }}
+            >
               <div className={styles.equipment}>
-                <span>🚗 {camper.transmission}</span>
-                <span>{camper.engine}</span>
-                {camper.kitchen && <span>🍳 Kitchen</span>}
-                {camper.AC && <span>❄️ AC</span>}
-                {camper.bathroom && <span>🚽 Bathroom</span>}
-                {camper.TV && <span>📺 TV</span>}
+                <TagOption icon="automatic" text={camper.transmission} />
+                <TagOption
+                  icon="fuel"
+                  text={camper.engine}
+                  iconClass="icon-fuel"
+                />
+                {camper.kitchen && <TagOption icon="kitchen" text="Kitchen" />}
+                {camper.AC && <TagOption icon="ac" text="AC" />}
+                {camper.bathroom && (
+                  <TagOption icon="bathroom" text="Bathroom" />
+                )}
+                {camper.TV && <TagOption icon="tv" text="TV" />}
               </div>
 
               <div className={styles.details}>
-                <h3>Vehicle details</h3>
+                <h3 className={styles.detailHeader}>Vehicle details</h3>
+                <hr />
                 <ul>
-                  <li>Form: {capitalize(camper.form)}</li>
-                  <li>Length: {camper.length}</li>
-                  <li>Width: {camper.width}</li>
-                  <li>Height: {camper.height}</li>
-                  <li>Tank: {camper.tank}</li>
-                  <li>Consumption: {camper.consumption}</li>
+                  <li>
+                    <span>Form</span> <span>{capitalize(camper.form)}</span>
+                  </li>
+                  <li>
+                    <span>Length</span> <span>{camper.length}</span>
+                  </li>
+                  <li>
+                    <span>Width</span> <span>{camper.width}</span>
+                  </li>
+                  <li>
+                    <span>Height</span> <span>{camper.height}</span>
+                  </li>
+                  <li>
+                    <span>Tank</span> <span>{camper.tank}</span>
+                  </li>
+                  <li>
+                    <span>Consumption</span> <span>{camper.consumption}</span>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div>
+            <div
+              className={`${styles.tabContent} ${styles.reviews}`}
+              style={{ display: activeTab === "reviews" ? "flex" : "none" }}
+            >
               <h3>Reviews</h3>
               {!camper.reviews.length && <p>No reviews yet</p>}
               {camper.reviews.map((review, index) => (
@@ -97,32 +138,32 @@ export default function CamperDetailsPage() {
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className={styles.bookingForm}>
-            <h3>Book your campervan now</h3>
-            <p>Stay connected! We are always ready to help you.</p>
-            <form>
-              <label>
-                Name*
-                <input type="text" name="name" required />
-              </label>
-              <label>
-                Email*
-                <input type="email" name="email" required />
-              </label>
-              <label>
-                Booking date*
-                <input type="date" name="bookingDate" required />
-              </label>
-              <label>
-                Comment
-                <textarea name="comment"></textarea>
-              </label>
-              <button type="submit" className={styles.submitButton}>
-                Send
-              </button>
-            </form>
+            <div className={styles.bookingForm}>
+              <h3>Book your campervan now</h3>
+              <p>Stay connected! We are always ready to help you.</p>
+              <form>
+                <label>
+                  Name*
+                  <input type="text" name="name" required />
+                </label>
+                <label>
+                  Email*
+                  <input type="email" name="email" required />
+                </label>
+                <label>
+                  Booking date*
+                  <input type="date" name="bookingDate" required />
+                </label>
+                <label>
+                  Comment
+                  <textarea name="comment"></textarea>
+                </label>
+                <button type="submit" className={styles.submitButton}>
+                  Send
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       )}
