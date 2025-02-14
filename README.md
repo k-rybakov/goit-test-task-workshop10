@@ -1,8 +1,30 @@
-# React + Vite
+# 🚚 TravelTrucks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Find, explore, and book the best trucks for your travel needs!**
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/Live_Demo-TravelTrucks-brightgreen?style=for-the-badge)](https://goit-test-task-workshop10.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## ✨ Features
+
+- 🔍 **Search** – Find trucks using powerful filters.
+- 📋 **Detailed Info** – View truck features and user reviews.
+- 📅 **Booking** – Reserve your favorite truck with ease.
+
+---
+
+## 🚀 Install & Run Locally
+
+```sh
+# Clone the repository
+https://github.com/k-rybakov/goit-test-task-workshop10.git
+cd traveltrucks
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+```
