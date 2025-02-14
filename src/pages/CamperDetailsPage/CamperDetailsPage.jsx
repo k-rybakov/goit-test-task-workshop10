@@ -12,6 +12,7 @@ import {
 } from "../../heplers/formatters";
 import TagOption from "../../components/TagOption/TagOption";
 import Rating from "../../components/Rating/Rating";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -23,7 +24,11 @@ export default function CamperDetailsPage() {
   const [activeTab, setActiveTab] = useState("features");
 
   const { camper, isLoading, error } = useSelector((state) => state.campers);
-  console.log(camper);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    toast.success("We got your request! We will contact you soon.");
+  };
 
   return (
     <>
@@ -144,31 +149,41 @@ export default function CamperDetailsPage() {
             </div>
 
             <div className={styles.bookingForm}>
-              <h3>Book your campervan now</h3>
-              <p>Stay connected! We are always ready to help you.</p>
-              <form>
-                <label>
-                  Name*
-                  <input type="text" name="name" required />
-                </label>
-                <label>
-                  Email*
-                  <input type="email" name="email" required />
-                </label>
-                <label>
-                  Booking date*
-                  <input type="date" name="bookingDate" required />
-                </label>
-                <label>
-                  Comment
-                  <textarea name="comment"></textarea>
-                </label>
+              <div>
+                <div className={styles.bookingHeader}>
+                  Book your campervan now
+                </div>
+                <div className={styles.bookingSubHeader}>
+                  Stay connected! We are always ready to help you.
+                </div>
+              </div>
+
+              <form onSubmit={submitHandler}>
+                <input type="text" name="name" required placeholder="Name*" />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email*"
+                />
+                <input
+                  type="date"
+                  name="bookingDate"
+                  required
+                  placeholder="Booking date*"
+                />
+                <textarea
+                  name="comment"
+                  rows="5"
+                  placeholder="Comment"
+                ></textarea>
                 <button type="submit" className={styles.submitButton}>
                   Send
                 </button>
               </form>
             </div>
           </div>
+          <Toaster />
         </div>
       )}
     </>
