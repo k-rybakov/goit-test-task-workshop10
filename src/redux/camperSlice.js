@@ -24,6 +24,19 @@ export const fetchCamperById = createAsyncThunk(
   }
 );
 
+const loadFavorites = () => {
+  try {
+    const saved = localStorage.getItem("favorites");
+    return saved ? JSON.parse(saved) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveFavorites = (favorites) => {
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+};
+
 const campersSlice = createSlice({
   name: "campers",
   initialState: {
@@ -33,12 +46,22 @@ const campersSlice = createSlice({
     error: null,
     hasMore: true,
     camper: null,
+    favorites: loadFavorites(),
   },
   reducers: {
     resetCampers: (state) => {
       state.items = [];
       state.total = 0;
-      state.hasMore = SiTruenas;
+      state.hasMore = true;
+    },
+    toggleFavorite: (state, action) => {
+      const camperId = action.payload;
+      if (state.favorites.includes(camperId)) {
+        state.favorites = state.favorites.filter((id) => id !== camperId);
+      } else {
+        state.favorites.push(camperId);
+      }
+      saveFavorites(state.favorites);
     },
   },
   extraReducers: (builder) => {
@@ -74,6 +97,6 @@ const campersSlice = createSlice({
 
 const campersReducer = campersSlice.reducer;
 
-export const { resetCampers } = campersSlice.actions;
+export const { resetCampers, toggleFavorite } = campersSlice.actions;
 
 export default campersReducer;

@@ -77,3 +77,24 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+
+.priceBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceBlock p {
+  margin: 0;
+}
+
+.priceBlock svg {
+  cursor: pointer;
+}
+
+.iconHeart {
+  width: 24px;
+  height: 24px;
+  transform: scale(0.75);
+}
